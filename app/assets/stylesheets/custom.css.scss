@@ -218,7 +218,7 @@ background-position: center;
 
 .jumbotron {
 text-align: center;
-background-image: asset-url('manor.jpg');
+background-image: asset-url('manor.jpg'); //
 background-size: cover;
 
 color: #fff;
@@ -468,4 +468,28 @@ color: #000 !important;
     font-weight: 600;
     line-height: 1.2;
 //    text-transform: uppercase;
+}
+
+.row-height {
+  // display: table;
+  // table-layout: fixed;
+  height: 50%;
+  width: 100%;
+}
+
+body { 
+  // background-image: image-url('background-wallpapers-34.jpg') no-repeat center center;
+  // background-image: url(image_path('background-wallpapers-34.jpg')) no-repeat center center;
+  // background-image: url("/assets/background-wallpapers-34.jpg") ;
+    
+  background: url('/assets/background-wallpapers-34.jpg');
+  
+  background-size: cover;   /* For a full size background image */
+  
+    /* Workaround for some mobile browsers */
+            min-height:100%;    
+            padding-top: 20px;
+            padding-bottom: 20px;
+            
+  
 }

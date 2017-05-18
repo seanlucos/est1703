@@ -1,5 +1,6 @@
 <!--<%#= "XXX" %><%#= session[:mpage] %><%#= "XXX" %>-->
-<div class='row'> 
+<div class='row'>
+  
   <div class='col-sm-offset-0 col-xs-12'>
     <div class="well" >
       <%= form_tag root_path, :method => "get", id: "search-form", :class => "form-horizontal project" , :enforce_utf8 => false do %>
@@ -48,6 +49,9 @@
               <%= select("area", "name", options_for_select(@areas_for_dropdown), {prompt: 'All areas'}, {class: 'form-control'}) %>            
             <% end %>
           </div> 
+          <%#= mail_to "landmarksupprt@gmail.com", "Contact us", class: "primary-link-style" %>
+          <!--<a href ="mailto:landmarksupprt@gmail.com">Contact us</a>-->
+
         </div>
 
         <div class="form-group">
@@ -95,7 +99,7 @@
 
         <div class="form-group">
           <div class="col-sm-offset-0 col-sm-3"> 
-            <select class="form-control" name="titletype" id="titletype">
+            <select class="form-control input-sm" name="titletype" id="titletype">
               <option value="">Title type</option>
               <% if params[:titletype].present? %>
                 <option value=<%= params[:titletype] %> selected="selected"><%= params[:titletype] %></option>
@@ -107,9 +111,9 @@
           <div class="col-sm-3"> 
             <% if params[:otherinfo].present? %>
               <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown, :selected => params[:otherinfo][:name] ), 
-                {prompt: 'Others'}, {class: 'form-control'}) %>
+                {prompt: 'Others'}, {class: 'form-control input-sm'}) %>
             <% else %>
-              <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown), {prompt: 'Others'}, {class: 'form-control'}) %>            
+              <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown), {prompt: 'Others'}, {class: 'form-control input-sm'}) %>            
             <% end %>
           </div> 
           <div align="right" class="col-sm-offset-3 checkbox col-sm-3"> 
@@ -125,7 +129,7 @@
             <div class="col-sm-offset-0 col-sm-2"> 
               <% if params[:chainb].present? %>
                 <%= select("chainb", "name", options_for_select(@roomsmin_for_dropdown, :selected => params[:chainb][:name] ),
-                  {prompt: 'Min'}, {class: 'form-control'}) %>
+                  {prompt: 'Min'}, {class: 'form-control input-sm'}) %>
               <% else %>
                 <%= select("chainb", "name", options_for_select(@roomsmin_for_dropdown), {prompt: 'Min'}, {class: 'form-control'}) %>
               <% end %>
@@ -249,4 +253,5 @@
       <% end %>
     </div>
   </div>
+  
 </div>

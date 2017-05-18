@@ -1,0 +1,37 @@
+## estate1703 - uploaded 27/3/17 - snap at 19/3/17
+## https://lucosruby-lucosruby.c9users.io/
+
+## added favicon
+## assets/images/penguin.png -renamed to favicon.ico
+## welcome/index.html.erb
+##             <%= favicon_link_tag 'favicon.ico' %>
+
+## _search.html.erb -add input-sm
+
+##            <select class="form-control input-sm" name="titletype" id="titletype">
+##              <option value="">Title type</option>
+              
+## <div class='row-height'> 
+## custom.css.scss   ---- no use
+
+
+## rails g migration add_valuation_to_articles valuation:decimal
+## rake db:migrate  --> add articles.valuation
+
+## _form.html.erb  >> change Amount-Currency >> to Currency-Amt-Valuation
+
+##  articles_controller.rb
+##  def article_params #(method for whitelisting) 
+##    params.require(:article).permit(:title, :description, :proptype, :category, :created_at, :place,
+##    :region, :area, :bedroom, :bathroom, :size, :amount, :uom, :currency, :xlift, :xsqua, :xplay, :xbalc,
+##    :xgymn, :xmini, :xjogg, :xcabl, :xtenn, :xpark, :xsecu, :xpool, :otherinfo, :size1, :titletype, :xonline, :valuation,
+
+## <% if params[:place].present? or params[:more] == 'Y'%>
+## <% else %>
+##   <div class="lowseng"></div>      -------- bg.gif  -- uploaded, removed
+## <% end %>
+
+
+## <%= mail_to "landmarksupprt@gmail.com", "Contact us", class: "primary-link-style" %>
+##        <!--<a href="landmarksupprt@gmail.com">Contact us</a>-->
+        

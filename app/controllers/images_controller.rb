@@ -43,6 +43,7 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
+    
     @image = Image.new(image_params)
     @image.article_id =  session[:current_article]
    #@article = Article.find(@image1.article_idxxxxxxxxxxxxxxxxx)
@@ -61,7 +62,7 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
-
+    
     respond_to do |format|
       if @image.update(image_params)
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
