@@ -11,6 +11,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 #gem 'carrierwave' #image uploader
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+# gem 'carrierwave', 'https://github.com/carrierwaveuploader/carrierwave.git'
 gem 'mini_magick' #image resize
 gem 'fog' 
 
@@ -46,6 +47,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Force the `github:` syntax to use HTTPS instead of the Git protocol.
+# The Git protocol isn't encrypted, and so is subject to MITM attacks.
+# This can be removed once Bundler 2.0 is released.
+# https://github.com/bundler/bundler/pull/2569
+# git_source :github do |repo|
+#   repo = "#{repo}/#{repo}" unless repo.include? '/'
+#   "https://github.com/#{repo}.git"
+# end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

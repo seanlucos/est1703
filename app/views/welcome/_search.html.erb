@@ -15,22 +15,24 @@
         <div class="form-group">        
           <div class="col-sm-3"> 
 
-            <% if params[:place].present? %>
-              <%= select("place", "name", options_for_select(@places_for_dropdown, :selected => params[:place][:name] ),
-                {prompt: 'Select country'}, {class: 'form-control'}) %>
-              <% else if current_user.present? %>
-                 <%if @places_for_dropdown.count.to_i == 1 %>
-                   <%= select("place", "name", options_for_select(@places_for_dropdown, @places_for_dropdown.first), {}, {class: 'form-control'}) %>                  
-                 <% else %>
-                   <%= select("place", "name", options_for_select(@places_for_dropdown, current_user.prefercountry), {prompt: 'Select country'}, {class: 'form-control'}) %>            
-                  <% end %>
-                <% else if @places_for_dropdown.count.to_i == 1 %>
-                   <%= select("place", "name", options_for_select(@places_for_dropdown, @places_for_dropdown.first), {}, {class: 'form-control'}) %>            
-                <% else%>
-                  <%= select("place", "name", options_for_select(@places_for_dropdown), {prompt: 'Select country'}, {class: 'form-control'}) %>            
-                <% end %>
-              <% end %>
-            <% end %>
+            <!--<%# if params[:place].present? %>-->
+            <!--  <%# select("place", "name", options_for_select(@places_for_dropdown, :selected => params[:place][:name] ),-->
+            <!--    {prompt: 'Select country'}, {class: 'form-control'}) %>-->
+            <!--  <%# else if current_user.present? %>-->
+              <!--<%# if current_user.present? %>-->
+              <!--   <%# if @places_for_dropdown.count.to_i == 1 %>-->
+              <!--     <%# select("place", "name", options_for_select(@places_for_dropdown, @places_for_dropdown.first), {}, {class: 'form-control'}) %>                  -->
+              <!--   <%# else %>-->
+              <!--     <%# select("place", "name", options_for_select(@places_for_dropdown, current_user.prefercountry), {prompt: 'Select country'}, {class: 'form-control'}) %>            -->
+              <!--    <%# end %>-->
+                  
+              <!--  <%# else if @places_for_dropdown.count.to_i == 1 %>-->
+              <!--     <%# select("place", "name", options_for_select(@places_for_dropdown, @places_for_dropdown.first), {}, {class: 'form-control'}) %>            -->
+              <!--  <%# else%>-->
+              <!--    <%# select("place", "name", options_for_select(@places_for_dropdown), {prompt: 'Select country'}, {class: 'form-control'}) %>            -->
+              <!--  <%# end %>-->
+              <!--<%# end %>-->
+            <!--<%# end %>-->
 
           </div> 
           <div class="col-sm-3"> 
@@ -53,7 +55,7 @@
           <!--<a href ="mailto:landmarksupprt@gmail.com">Contact us</a>-->
 
         </div>
-
+        <!--------- dont use input-sm; use zoom to decide --------------------------->
         <div class="form-group">
           <div class="col-sm-offset-0 col-sm-3"> 
             <select class="form-control" name="category" id="category">
@@ -61,12 +63,29 @@
               <% if params[:category].present? %>
                 <option value=<%= params[:category] %> selected="selected"><%= params[:category] %></option>
               <% end %>
-              <option value="Apartment">Apartment</option>
-              <option value="House">House</option>
-              <option value="Commercial">Commercial</option>
-              <option value="Land">Land</option>
-              <option value="Room">Room</option>
-              <option value="New">New-Property</option>            
+              <!--<option value="Apartment">Apartment</option>-->
+              <!--<option value="House">House</option>-->
+              <!--<option value="Commercial">Commercial</option>-->
+              <!--<option value="Land">Land</option>-->
+              <!--<option value="Room">Room</option>-->
+              <!--<option value="New">New-Property</option>-->
+              <option value="Flat">Flat</option>
+              <option value="Townhouse">Townhouse</option>
+              <option value="Condominium">Condo</option>
+              <option value="Serviced Apartment">Serviced Apartment</option>
+              <option value="Terrace house">Terrace house</option>
+              <option value="Semi D">Semi D</option>
+              <option value="Bungalow">Bungalow</option>
+              <option value="Villa">Villa</option>
+              <option value="Office">Office</option>
+              <option value="Retail">Retail</option>
+              <option value="Shoplot">Shoplot</option>
+              <option value="Factory">Factory</option>
+              <option value="Warehouse">Warehouse</option>
+              <option value="Agricultural Land">Agricultural Land</option>
+              <option value="Residential Land">Residential Land</option>
+              <option value="Commercial Land">Commercial Land</option>
+              <option value="Industrial Land">Industrial Land</option>
             </select> 
           </div>           
           <div align="left" class="checkbox col-sm-7"> 
@@ -99,7 +118,7 @@
 
         <div class="form-group">
           <div class="col-sm-offset-0 col-sm-3"> 
-            <select class="form-control input-sm" name="titletype" id="titletype">
+            <select class="form-control" name="titletype" id="titletype">
               <option value="">Title type</option>
               <% if params[:titletype].present? %>
                 <option value=<%= params[:titletype] %> selected="selected"><%= params[:titletype] %></option>
@@ -111,9 +130,9 @@
           <div class="col-sm-3"> 
             <% if params[:otherinfo].present? %>
               <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown, :selected => params[:otherinfo][:name] ), 
-                {prompt: 'Others'}, {class: 'form-control input-sm'}) %>
+                {prompt: 'Others'}, {class: 'form-control'}) %>
             <% else %>
-              <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown), {prompt: 'Others'}, {class: 'form-control input-sm'}) %>            
+              <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown), {prompt: 'Others'}, {class: 'form-control'}) %>            
             <% end %>
           </div> 
           <div align="right" class="col-sm-offset-3 checkbox col-sm-3"> 
@@ -121,6 +140,9 @@
           </div>
         </div>
 
+
+        <!---------EXTENDED SEARCH---------------------------------------------------------------------------------------------------------->
+        
         <section id="comments-section">
           <div class="form-group">
             <div class="control-label col-sm-offset-0 col-sm-2"> 
@@ -129,7 +151,7 @@
             <div class="col-sm-offset-0 col-sm-2"> 
               <% if params[:chainb].present? %>
                 <%= select("chainb", "name", options_for_select(@roomsmin_for_dropdown, :selected => params[:chainb][:name] ),
-                  {prompt: 'Min'}, {class: 'form-control input-sm'}) %>
+                  {prompt: 'Min'}, {class: 'form-control'}) %>
               <% else %>
                 <%= select("chainb", "name", options_for_select(@roomsmin_for_dropdown), {prompt: 'Min'}, {class: 'form-control'}) %>
               <% end %>

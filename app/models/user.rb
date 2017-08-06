@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 # must check the following during updates only
   # validates :name, presence: true, :on => :update --- taken out coz forgot password issue 20/10/2016
   # validates :telephone, presence: true, :on => :update   --- taken out coz forgot password issue 20/10/2016
+  validates_presence_of :name, :agentno, :company, :telephone
   
   serialize :notification_params, Hash
   def paypal_url(return_path)
@@ -32,5 +33,14 @@ class User < ActiveRecord::Base
     }
     "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + values.to_query
   end
+
+  # def active_for_authentication?
+  #   # super && self.your_method_for_checking_active # i.e. super && self.is_active
+  #   super && self.is_active
+  # end
   
+  # def inactive_message
+  #   "Sorry, this account has been deactivated."
+  # end
+
 end
