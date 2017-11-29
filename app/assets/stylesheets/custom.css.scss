@@ -493,15 +493,24 @@ body {
             
   
 }
-.navbar-brand {
-  padding: 0px;
-}
-.navbar-brand>img {
-  height: 100%;
-  padding: 0px;
-  width: auto;
-}
+// .navbar-brand {
+//   padding: 0px;
+// }
+// .navbar-brand>img {
+//   height: 100%;
+//   padding: 0px;
+//   width: auto;
+// }
 .guion {
     float: left;
 }
 
+/* turn it off completely */
+select:active, select:hover {
+  outline: none
+}
+
+/* make it red instead (with with same width and style) */
+select:active, select:hover {
+  outline-color: red
+}

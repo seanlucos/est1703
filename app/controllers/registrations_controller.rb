@@ -1,6 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
+    
+# build_resource(sign_up_params) # will be the similar to user = User.new(sign_up_params)
+# resource # will be an instance of User
+# resource.valid? # will be the name as user.valid?    
+    
     resource.class.transaction do
     resource.save
     yield resource if block_given?
@@ -17,6 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
         puts 'Payment failed'
         render :new and return
       end
+      
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
@@ -37,5 +43,6 @@ end
 protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push(:payment)
+    devise_parameter_sanitizer.for(:account_update).push(:name, :telephone, :agentno, :company, :prefercountry)
   end
 end

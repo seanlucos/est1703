@@ -4,7 +4,9 @@
   <div class='col-sm-offset-0 col-xs-12'>
     <div class="well" >
       <%= form_tag root_path, :method => "get", id: "search-form", :class => "form-horizontal project" , :enforce_utf8 => false do %>
-        <div class="form-group">
+        
+        <!--Search titles & descriptions-->
+        <div class="form-group form-group-sm">
           <div class="col-sm-10">
             <%= text_field_tag :search, params[:search], placeholder: "Search titles & descriptions", class: 'form-control' %>
           </div>
@@ -12,7 +14,7 @@
             <%= submit_tag "Search!", :name => nil %>
           </div>
         </div>
-        <div class="form-group">        
+        <div class="form-group form-group-sm">        
           <div class="col-sm-3"> 
 
             <!-- HIDE search by COUNTRY -->
@@ -37,20 +39,25 @@
             <!-- END search by COUNTRY -->
 
           </div> 
+          <!-- Regions table = STATES: Selangor -->
           <div class="col-sm-3"> 
             <% if params[:region].present? %>
               <%= select("region", "name", options_for_select(@regions_for_dropdown, :selected => params[:region][:name] ),
                 {prompt: 'All regions'}, {class: 'form-control'}) %>
             <% else %>
-              <%= select("region", "name", options_for_select(@regions_for_dropdown), {prompt: 'All regions '}, {class: 'form-control'}) %>
+              <%= select("region", "name", options_for_select(@regions_for_dropdown), 
+                {prompt: 'All regions '}, {class: 'form-control'}) %>
             <% end %>
           </div> 
+          
+          <!-- areas table = USJ -->
           <div class="col-sm-3"> 
             <% if params[:area].present? %>
               <%= select("area", "name", options_for_select(@areas_for_dropdown, :selected => params[:area][:name] ),
                 {prompt: 'All areas'}, {class: 'form-control'}) %>
             <% else %>
-              <%= select("area", "name", options_for_select(@areas_for_dropdown), {prompt: 'All areas'}, {class: 'form-control'}) %>            
+              <%= select("area", "name", options_for_select(@areas_for_dropdown), 
+                {prompt: 'All areas'}, {class: 'form-control'}) %>            
             <% end %>
           </div> 
           <%#= mail_to "landmarksupprt@gmail.com", "Contact us", class: "primary-link-style" %>
@@ -58,31 +65,44 @@
 
         </div>
         <!--------- dont use input-sm; use zoom to decide --------------------------->
-        <div class="form-group">
+        <div class="form-group form-group-sm">
           <div class="col-sm-offset-0 col-sm-3"> 
-            <select class="form-control" name="category" id="category">
-              <option value="">All category</option>
-              <% if params[:category].present? %>
-                <option value=<%= params[:category] %> selected="selected"><%= params[:category] %></option>
-              <% end %>
-              <option value="Flat">Flat</option>
-              <option value="Townhouse">Townhouse</option>
-              <option value="Condominium">Condo</option>
-              <option value="Serviced Apartment">Serviced Apartment</option>
-              <option value="Terrace house">Terrace house</option>
-              <option value="Semi D">Semi D</option>
-              <option value="Bungalow">Bungalow</option>
-              <option value="Villa">Villa</option>
-              <option value="Office">Office</option>
-              <option value="Retail">Retail</option>
-              <option value="Shoplot">Shoplot</option>
-              <option value="Factory">Factory</option>
-              <option value="Warehouse">Warehouse</option>
-              <option value="Agricultural Land">Agricultural Land</option>
-              <option value="Residential Land">Residential Land</option>
-              <option value="Commercial Land">Commercial Land</option>
-              <option value="Industrial Land">Industrial Land</option>
-            </select> 
+            <!--<select class="form-control" name="category" id="category">-->
+            <!--  <option value="">All category</option>-->
+            <!--  <%# if params[:category].present? %>-->
+            <!--    <option value=<%#= params[:category] %> selected="selected"><%#= params[:category] %></option>-->
+            <!--  <%# end %>-->
+            <!--  <option value="Flat">Flat</option>-->
+            <!--  <option value="Townhouse">Townhouse</option>-->
+            <!--  <option value="Condominium">Condominium</option>-->
+            <!--  <option value="Serviced Apartment">Serviced Apartment</option>-->
+            <!--  <option value="Terrace house">Terrace house</option>-->
+            <!--  <option value="Semi D">Semi D</option>-->
+            <!--  <option value="Bungalow">Bungalow</option>-->
+            <!--  <option value="Villa">Villa</option>-->
+            <!--  <option value="Office">Office</option>-->
+            <!--  <option value="Retail">Retail</option>-->
+            <!--  <option value="Shoplot">Shoplot</option>-->
+            <!--  <option value="Factory">Factory</option>-->
+            <!--  <option value="Warehouse">Warehouse</option>-->
+            <!--  <option value="Agricultural Land">Agricultural Land</option>-->
+            <!--  <option value="Residential Land">Residential Land</option>-->
+            <!--  <option value="Commercial Land">Commercial Land</option>-->
+            <!--  <option value="Industrial Land">Industrial Land</option>-->
+            <!--</select> -->
+            <% if params[:category].present? %>
+              <%= select_tag(:category, options_for_select([['Category:',''], ['Flat','Flat'],['Townhouse','Townhouse'],['Condominium','Condominium'],['Serviced Apartment','Serviced Apartment'],
+              ['Terrace house','Terrace house'],['Semi D','Semi D'],['Bungalow','Bungalow'],['Villa','Villa'],['Office','Office'],['Retail','Retail'],['Shoplot','Shoplot'],
+              ['Factory','Factory'],['Warehouse','Warehouse'],['Agricultural Land','Agricultural Land'],['Residential Land','Residential Land'],['Commercial Land','Commercial Land'],
+              ['Industrial Land','Industrial Land']], :selected => params[:category] ),
+              {class: 'form-control'})%>     <!-- without class, looks better -->
+            <% else %>
+              <%= select_tag(:category, options_for_select([['Category:',''], ['Flat','Flat'],['Townhouse','Townhouse'],['Condominium','Condominium'],['Serviced Apartment','Serviced Apartment'],
+              ['Terrace house','Terrace house'],['Semi D','Semi D'],['Bungalow','Bungalow'],['Villa','Villa'],['Office','Office'],['Retail','Retail'],['Shoplot','Shoplot'],
+              ['Factory','Factory'],['Warehouse','Warehouse'],['Agricultural Land','Agricultural Land'],['Residential Land','Residential Land'],['Commercial Land','Commercial Land'],
+              ['Industrial Land','Industrial Land']]),
+              {class: 'form-control'})%>            
+            <% end %>
           </div>           
           <div align="left" class="checkbox col-sm-7"> 
             <!--<%#= radio_button_tag 'proptype', '', checked = true %> All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
@@ -112,23 +132,31 @@
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group form-group-sm">
           <div class="col-sm-offset-0 col-sm-3"> 
-            <select class="form-control" name="titletype" id="titletype">
-              <option value="">Title type</option>
-              <% if params[:titletype].present? %>
-                <option value=<%= params[:titletype] %> selected="selected"><%= params[:titletype] %></option>
-              <% end %>
-              <option value="Freehold">Freehold</option>
-              <option value="Leasehold">Leasehold</option>
-            </select> 
+            <!--<select class="form-control" name="titletype" id="titletype">-->
+            <!--  <option value="">Title type</option>-->
+            <!--  <%# if params[:titletype].present? %>-->
+            <!--    <option value=<%#= params[:titletype] %> selected="selected"><%#= params[:titletype] %></option>-->
+            <!--  <%# end %>-->
+            <!--  <option value="Freehold">Freehold</option>-->
+            <!--  <option value="Leasehold">Leasehold</option>-->
+            <!--</select> -->
+            <% if params[:titletype].present? %>
+              <%= select_tag(:titletype, options_for_select([['Title type:',''], ['Freehold','Freehold'],['Leasehold','Leasehold']], :selected => params[:titletype] ),
+              {class: 'form-control'}) %><!-- without class, looks better -->
+            <% else %>
+              <%= select_tag(:titletype, options_for_select([['Title type:',''], ['Freehold','Freehold'],['Leasehold','Leasehold']]),
+              {class: 'form-control'}) %>       
+            <% end %>
           </div>  
           <div class="col-sm-3"> 
             <% if params[:otherinfo].present? %>
               <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown, :selected => params[:otherinfo][:name] ), 
                 {prompt: 'Others'}, {class: 'form-control'}) %>
             <% else %>
-              <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown), {prompt: 'Others'}, {class: 'form-control'}) %>            
+              <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown), 
+                {prompt: 'Others'}, {class: 'form-control'}) %>         
             <% end %>
           </div> 
           <div align="right" class="col-sm-offset-3 checkbox col-sm-3"> 
@@ -140,7 +168,7 @@
         <!---------EXTENDED SEARCH---------------------------------------------------------------------------------------------------------->
         
         <section id="comments-section">
-          <div class="form-group">
+          <div class="form-group form-group-sm">
             
           <!-------- row: Rooms: ------------------------------------------------------------------------------------->
             <!--<div class="control-label col-sm-offset-0 col-sm-2">  
@@ -148,20 +176,21 @@
             <!--</div>-->
             <div class="col-sm-offset-0  col-sm-2"> 
               <% if params[:chainb].present? %>
-                <%= select("chainb", "name", options_for_select(@roomsmin_for_dropdown, :selected => params[:chainb][:name] ),
+                <%= select("chainb", "name", options_for_select(@roomsmin_for_dropdown, :selected => params[:chainb][:name]),
                   {prompt: 'Rooms: Min'}, {class: 'form-control'}) %>
               <% else %>
-                <%= select("chainb", "name", options_for_select(@roomsmin_for_dropdown), {prompt: 'Rooms: Min'}, {class: 'form-control'}) %>
+                <%= select("chainb", "name", options_for_select(@roomsmin_for_dropdown), 
+                  {prompt: 'Rooms: Min'}, {class: 'form-control'}) %>
               <% end %>
             </div>
             <!--<div class="guion">-</div>-->
             <div class="col-sm-offset-0 col-sm-2"> 
               <% if params[:chainc].present? %>
-                <%= select("chainc", "name", options_for_select(@roomsmax_for_dropdown, :selected => params[:chainc][:name] ), 
+                <%= select("chainc", "name", options_for_select(@roomsmax_for_dropdown, :selected => params[:chainc][:name]), 
                   {prompt: 'Max'}, {class: 'form-control'}) %>
               <% else %>
-                <%= select("chainc", "name", options_for_select(@roomsmax_for_dropdown), {prompt: 'Max'},
-                  {class: 'form-control'}) %>            
+                <%= select("chainc", "name", options_for_select(@roomsmax_for_dropdown), 
+                  {prompt: 'Max'}, {class: 'form-control'}) %>            
               <% end %>
             </div>
             
@@ -173,9 +202,11 @@
                 <%= select("chaina", "uom", options_for_select(@uoms_for_dropdown, :selected => params[:chaina][:uom] ),
                   {prompt: 'UOM'}, {class: 'form-control'}) %>
                 <% else if current_user.present? %>
-                    <%= select("chaina", "uom", options_for_select(@uoms_for_dropdown, current_user.preferuom), {prompt: 'Unit type'}, {class: 'form-control'}) %>            
+                    <%= select("chaina", "uom", options_for_select(@uoms_for_dropdown, current_user.preferuom), 
+                      {prompt: 'Unit type'}, {class: 'form-control'}) %>            
                   <% else %>
-                    <%= select("chaina", "uom", options_for_select(@uoms_for_dropdown), {prompt: 'Unit type'}, {class: 'form-control'}) %>            
+                    <%= select("chaina", "uom", options_for_select(@uoms_for_dropdown), 
+                      {prompt: 'Unit type'}, {class: 'form-control'}) %>            
                 <% end %>
               <% end %>
             </div>  
@@ -183,7 +214,7 @@
 
 
           <!-------- row: Baths: ------------------------------------------------------------------------------------->
-          <div class="form-group">
+          <div class="form-group form-group-sm">
             <!--<div class="control-label col-sm-offset-0 col-sm-2">  
             <!--  <%# "Baths:" %>-->
             <!--</div>-->
@@ -229,7 +260,7 @@
 
 
           <!-------- row: Prices: ------------------------------------------------------------------------------------->
-          <div class="form-group">
+          <div class="form-group form-group-sm">
             <!--<div class="control-label col-sm-offset-0 col-sm-2">  
             <!--  <%# "Price:" %>-->
             <!--</div>-->
