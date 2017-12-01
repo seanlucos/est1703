@@ -110,22 +110,22 @@
               <%= radio_button_tag 'proptype', 'for Sale', checked = true if params[:proptype] == 'for Sale' %> For sale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <% else %>
               <%#= radio_button_tag 'proptype', 'for Sale', checked = true %>
-              <%= radio_button_tag 'proptype', 'for Sale'%> For sale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= radio_button_tag 'proptype', 'for Sale'%> For Sale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <% end %>
             <% if params[:proptype] == 'for Rent' %>
               <%= radio_button_tag 'proptype', 'for Rent', checked = true if params[:proptype] == 'for Rent' %> For rent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <% else %>
-              <%= radio_button_tag 'proptype', 'for Rent' %> For rent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= radio_button_tag 'proptype', 'for Rent' %> For Rent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <% end %>
             <% if params[:proptype] == 'for Auction' %>
               <%= radio_button_tag 'proptype', 'for Auction', checked = true if params[:proptype] == 'for Auction' %> For auction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <% else %>
-              <%= radio_button_tag 'proptype', 'for Auction' %> For auction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= radio_button_tag 'proptype', 'for Auction' %> For Auction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <% end %>
             <% if params[:proptype] == 'new Launch' %>
-              <%= radio_button_tag 'proptype', 'new Launch', checked = true if params[:proptype] == 'new Launch' %> New launch
+              <%= radio_button_tag 'proptype', 'new Launch', checked = true if params[:proptype] == 'new Launch' %> New Launch
             <% else %>
-              <%= radio_button_tag 'proptype', 'new Launch' %> New launch
+              <%= radio_button_tag 'proptype', 'new Launch' %> New Launch
             <% end %>
           </div>
 
