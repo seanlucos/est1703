@@ -13,7 +13,7 @@
         <% if logged_in? and current_user.admin? %>
           <%= render 'articleadmin', obj: @articles %>        
         <% else %>
-          <br><%= render 'article', obj: @articles %>
+          <br><%= render 'article', obj: @articles %>     <!-- obj: as ref_params :articles?usr=9 -->
         <% end %>
       </div>
       <div align="left" >
