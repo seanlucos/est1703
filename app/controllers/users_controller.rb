@@ -7,16 +7,20 @@ class UsersController < ApplicationController
   before_action :enforce_tenancy, except: [:index]
   
   def index
-    if params[:status] == "Premier"
+    if params[:status] != "Pending" #Premier
       @users = User.paginate(page: params[:page], per_page: 10).where(:status => params[:status]).order('updated_at desc')
+      
       else if params[:status] == "Pending"
-        @users = User.paginate(page: params[:page], per_page: 10).where(:status => [nil,""], gold: true).order('updated_at desc')
-        else if params[:status] == "Basic"
-          @users = User.paginate(page: params[:page], per_page: 10).where(:status => [nil,""]).order('updated_at desc')
-          else if params[:status] == "Agency"
-            @users = User.paginate(page: params[:page], per_page: 10).where(:status => params[:status]).order('updated_at desc')
-          end
-        end
+        @users = User.paginate(page: params[:page], per_page: 10).where(:status => [nil,""]).order('updated_at desc')
+        # @users = User.paginate(page: params[:page], per_page: 10).where(:status => [nil,""], gold: true).order('updated_at desc')
+        
+        # else if params[:status] == "Basic"
+        #   @users = User.paginate(page: params[:page], per_page: 10).where(:status => [nil,""]).order('updated_at desc')
+          
+        #   else if params[:status] == "Agency"
+        #     @users = User.paginate(page: params[:page], per_page: 10).where(:status => params[:status]).order('updated_at desc')
+        #   end
+        # end
       end
     end
   end
@@ -48,8 +52,9 @@ class UsersController < ApplicationController
     
     if @user.update(user_params)
       flash[:success] = "Your account was updated successfully"
+
       if @user.gold?
-        if @user.m_gold == "PayPal" #m_gold defined at attr_accessor
+        if @user.m_gold == "PayPal"         ## m_gold defined at attr_accessor
           redirect_to @user.paypal_url(paypal_path)
         else 
           if @user.m_gold == "CreditCard"
@@ -62,7 +67,22 @@ class UsersController < ApplicationController
         #redirect_to 'http://www.yahoo.com'
         redirect_to edit_user_path(current_user.id)
       end
+
+      ## if payment failed, should set user.status to NIL
+ 
+      # if @user.m_gold == "prem350"         ## m_gold defined at attr_accessor
+      #   redirect_to @user.paypal_url(paypal_path)
+      # else 
+      #   if @user.m_gold == "gold500"
+      #     redirect_to new_card_path
+      #   else
+      #     redirect_to edit_user_path(current_user.id)
+      #   end
+      # end 
+
       
+
+
     else
       render 'edit'
     end
@@ -82,7 +102,7 @@ class UsersController < ApplicationController
     # users_path must have :status params >> users_path(:status => "Basic")
     # redirect_to users_path << will fail!!
     
-    redirect_to users_path(:status => "Basic")
+    redirect_to users_path(:status => "Premier") #Basic
   end
   
   protect_from_forgery except: [:hook]

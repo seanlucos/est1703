@@ -26,10 +26,12 @@ class User < ActiveRecord::Base
         cmd: "_xclick",
         upload: 1,
         return: "#{Rails.application.secrets.app_host}#{return_path}",
+        
         #invoice: '229',
         amount: '350.00',
         item_name: 'Package-1',
         currency_code: 'MYR',
+        
         #item_number: id,
         notify_url: "#{Rails.application.secrets.app_host}/hook",
         quantity: '1'
@@ -37,6 +39,9 @@ class User < ActiveRecord::Base
     "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + values.to_query
   end
 
+  def package
+  end
+  
   # def active_for_authentication?
   #   # super && self.your_method_for_checking_active # i.e. super && self.is_active
   #   super && self.is_active

@@ -42,6 +42,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options = { :host => 'real-estate-chanson.c9users.io/'}
   
+  # BRAINTREE testing: 31/12/2017
+  # Braintree::Configuration.environment ='sandbox'
+  # Braintree::Configuration.merchant_id ='8s5s4gfdr7qvkv2m'
+  # Braintree::Configuration.public_key ='9wmbjgwns6s6h9ms'
+  # Braintree::Configuration.private_key ='4650dd1e6195f6d3feb0809577e43d67'
+  
   # To change to Chanson's info asap!
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test  # :production when you will use a real Pro Account
