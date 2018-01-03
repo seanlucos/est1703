@@ -39,8 +39,6 @@ class User < ActiveRecord::Base
     "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + values.to_query
   end
 
-  def package
-  end
   
   # def active_for_authentication?
   #   # super && self.your_method_for_checking_active # i.e. super && self.is_active

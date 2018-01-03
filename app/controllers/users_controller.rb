@@ -92,6 +92,9 @@ class UsersController < ApplicationController
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 15)
   end
 
+  def package
+  end
+  
   def destroy
     #byebug
     
