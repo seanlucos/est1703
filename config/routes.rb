@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   
-  resources :paypals
-  resources :cards
+  # resources :paypals
+  # resources :cards
   resources :images
   resources :places
   resources :regions
   resources :areas
   resources :otherinfos 
+  resources :checkouts,  only: [:new, :create, :show]
+  resources :bt_transactions,  only: [:index, :destroy]
   #for coder use only
   #resources :rawplaces
   #resources :rawregions
@@ -26,8 +28,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   root 'welcome#index'
-  post "/hook" => "paypals#hook"
-  post "/paypals/:id" => "paypals#new"  
+  # post "/hook" => "paypals#hook"
+  # post "/paypals/:id" => "paypals#new"  
 
   # get 'welcome/mmindex' => 'welcome#mmindex', :proptype => "for Sale"
   get 'welcome/mmindex' => 'welcome#mmindex'

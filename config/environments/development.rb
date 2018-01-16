@@ -43,7 +43,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'real-estate-chanson.c9users.io/'}
   
   # BRAINTREE testing: 31/12/2017
-  # Braintree::Configuration.environment ='sandbox'
+  # Braintree::Configuration.environment ='sandbox'    ## :development
   # Braintree::Configuration.merchant_id ='8s5s4gfdr7qvkv2m'
   # Braintree::Configuration.public_key ='9wmbjgwns6s6h9ms'
   # Braintree::Configuration.private_key ='4650dd1e6195f6d3feb0809577e43d67'
