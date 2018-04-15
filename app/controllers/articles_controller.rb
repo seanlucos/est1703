@@ -124,7 +124,7 @@ class ArticlesController < ApplicationController
     @article.place = params[:place][:name] if params[:place].present?
     @article.region = params[:region][:name] if params[:region].present?
     @article.area = params[:area][:name] if params[:area].present?
-    @article.otherinfo = params[:otherinfo][:name] if params[:otherinfo].present?    
+    @article.otherinfo = params[:otherinfo][:name] if params[:otherinfo].present?  
 
     if @article.save 
       #flash[:success]='Article was successfully created' 
