@@ -111,30 +111,7 @@
         </div>
 
         <div class="form-group form-group-sm">
-          <div class="col-xs-offset-0 col-xs-4 gutter-0"> 
-            <!--<select class="form-control" name="category" id="category">-->
-            <!--  <option value="">All category</option>-->
-            <!--  <%# if params[:category].present? %>-->
-            <!--    <option value=<%#= params[:category] %> selected="selected"><%#= params[:category] %></option>-->
-            <!--  <%# end %>-->
-            <!--  <option value="Flat">Flat</option>-->
-            <!--  <option value="Townhouse">Townhouse</option>-->
-            <!--  <option value="Condominium">Condominium</option>-->
-            <!--  <option value="Serviced Apartment">Serviced Apartment</option>-->
-            <!--  <option value="Terrace house">Terrace house</option>-->
-            <!--  <option value="Semi D">Semi D</option>-->
-            <!--  <option value="Bungalow">Bungalow</option>-->
-            <!--  <option value="Villa">Villa</option>-->
-            <!--  <option value="Office">Office</option>-->
-            <!--  <option value="Retail">Retail</option>-->
-            <!--  <option value="Shoplot">Shoplot</option>-->
-            <!--  <option value="Factory">Factory</option>-->
-            <!--  <option value="Warehouse">Warehouse</option>-->
-            <!--  <option value="Agricultural Land">Agricultural Land</option>-->
-            <!--  <option value="Residential Land">Residential Land</option>-->
-            <!--  <option value="Commercial Land">Commercial Land</option>-->
-            <!--  <option value="Industrial Land">Industrial Land</option>-->
-            <!--</select> -->
+          <div class="col-xs-offset-0 col-xs-4 gutter-0">  
             <% if params[:category].present? %>
               <%= select_tag(:category, options_for_select([['Category:',''], ['Flat','Flat'],['Townhouse','Townhouse'],['Condominium','Condominium'],['Serviced Apartment','Serviced Apartment'],
               ['Terrace house','Terrace house'],['Semi D','Semi D'],['Bungalow','Bungalow'],['Villa','Villa'],['Office','Office'],['Retail','Retail'],['Shoplot','Shoplot'],
@@ -149,15 +126,7 @@
               {class: 'form-control'}) %>          
             <% end %>
           </div>
-          <div class="col-xs-offset-0 col-xs-4 gutter-0"> 
-            <!--<select class="form-control" name="titletype" id="titletype">-->
-            <!--  <option value="">Title type</option>-->
-            <!--  <%# if params[:titletype].present? %>-->
-            <!--    <option value=<%#= params[:titletype] %> selected="selected"><%#= params[:titletype] %></option>-->
-            <!--  <%# end %>-->
-            <!--  <option value="Freehold">Freehold</option>-->
-            <!--  <option value="Leasehold">Leasehold</option>-->
-            <!--</select> -->
+          <div class="col-xs-offset-0 col-xs-4 gutter-0">  
             <% if params[:titletype].present? %>
               <%= select_tag(:titletype, options_for_select([['Title type:',''], ['Freehold','Freehold'],['Leasehold','Leasehold']], :selected => params[:titletype] ),
               {class: 'form-control'}) %><!-- without class, looks better -->
@@ -171,9 +140,10 @@
           <div class="col-xs-4 gutter-0"> 
             <% if params[:otherinfo].present? %>
               <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown, :selected => params[:otherinfo][:name] ), 
-                {prompt: 'Others'}, {class: 'form-control'}) %>
+                {prompt: 'All Others'}, {class: 'form-control'}) %>
             <% else %>
-              <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown), {prompt: 'Others'}, {class: 'form-control'}) %>            
+              <%#= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown), {prompt: 'Others'}, {class: 'form-control'}) %>  
+              <%= select("otherinfo", "name", options_for_select(@otherinfos_for_dropdown, :selected => @otherinfos_for_dropdown.last), {prompt: 'All Others'}, {class: 'form-control'}) %> 
             <% end %>
           </div> 
         </div>
@@ -241,21 +211,23 @@
               <span><%= "Price:" %>&nbsp;</span>
             </div>
             <div class="col-xs-offset-0 col-xs-4 gutter-0"> 
-              <% if params[:chainb].present? %>
-                <%= select("chainb", "price", options_for_select(@pricemin_for_dropdown, :selected => params[:chainb][:price] ),
+              <%= number_field_tag :amtFR, params[:amtFR], min: 0, max: 10000000, :step => 'any', class: "form-control number", placeholder: "Min" %>
+              <%# if params[:chainb].present? %>
+                <%#= select("chainb", "price", options_for_select(@pricemin_for_dropdown, :selected => params[:chainb][:price] ),
                   {prompt: 'Min'}, {class: 'form-control'}) %>
-              <% else %>
-                <%= select("chainb", "price", options_for_select(@pricemin_for_dropdown), {prompt: 'Min'}, {class: 'form-control'}) %>
-              <% end %>
+              <%# else %>
+                <%#= select("chainb", "price", options_for_select(@pricemin_for_dropdown), {prompt: 'Min'}, {class: 'form-control'}) %>
+              <%# end %>
             </div>
             <div class="col-xs-offset-0 col-xs-4 gutter-0"> 
-              <% if params[:chainc].present? %>
-                <%= select("chainc", "price", options_for_select(@pricemax_for_dropdown, :selected => params[:chainc][:price] ), 
+              <%= number_field_tag :amtTO, params[:amtTO], min: 0, max: 10000000, :step => 'any', class: "form-control number", placeholder: "Max" %>
+              <%# if params[:chainc].present? %>
+                <%#= select("chainc", "price", options_for_select(@pricemax_for_dropdown, :selected => params[:chainc][:price] ), 
                   {prompt: 'Max'}, {class: 'form-control'}) %>
-              <% else %>
-                <%= select("chainc", "price", options_for_select(@pricemax_for_dropdown), {prompt: 'Max'},
+              <%# else %>
+                <%#= select("chainc", "price", options_for_select(@pricemax_for_dropdown), {prompt: 'Max'},
                   {class: 'form-control'}) %>            
-              <% end %>
+              <%# end %>
             </div>
           </div>
           
