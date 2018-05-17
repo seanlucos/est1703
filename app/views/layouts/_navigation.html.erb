@@ -37,9 +37,18 @@
         
         <!-- (2) New Ads -->  
         <% if logged_in? %>
-          <% if current_user.status? %>
-            <li><%= link_to "<span class='glyphicon glyphicon-edit'></span>&nbsp; Insert New Ad".html_safe, 
-              new_article_path(:param1 => "new", :proptype => "for Sale") %></li>
+          <% if current_user.status? && Date.today <= current_user.expiry_date %>
+
+
+            <%# if Date.today > current_user.expiry_date %>
+              <%# session[:m_gold] = current_user.status %>
+              <li><%#= link_to "<span class='glyphicon glyphicon-cog'></span>&nbsp; Subscribe".html_safe, new_checkout_path %></li> 
+            <%# else %>
+              <li><%= link_to "<span class='glyphicon glyphicon-edit'></span>&nbsp; Insert New Ad".html_safe, 
+                new_article_path(:param1 => "new", :proptype => "for Sale") %></li>
+            <%# end %>
+
+
           <% else %>
              <li><%= link_to "<span class='glyphicon glyphicon-info-sign'></span>&nbsp; Package".html_safe, package_path %></li>
           <% end %>

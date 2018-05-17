@@ -1,9 +1,12 @@
 <div class="wrapper">
   <div class="checkout container">
-    <div class="content">
+    <div class="content"> 
 
       <header>
         <!--<h1>Hi, <br>Let's test a transaction</h1>-->
+        
+        <% session[:m_gold] = params[:m_gold] if params[:m_gold].present? %>
+        
         <h2>Hi, <%= session[:m_name] %></h2> 
         
         <h3>How would you like to pay for the 

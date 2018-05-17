@@ -29,6 +29,7 @@ class Article < ActiveRecord::Base
   scope :furnishing, -> (furnishing) { where furnishing: furnishing }    
   scope :zoning, -> (zoning) { where zoning: zoning }    
   scope :lot, -> (lot) { where lot: lot }  
+  scope :active_days, ->(time) { where("articles.updated_at > ?", time) if time.present? }
   
   def self.search(search)
    where(['LOWER(title) LIKE ? OR LOWER(description) LIKE ?', "%#{search.downcase}%", "%#{search.downcase}%"])
