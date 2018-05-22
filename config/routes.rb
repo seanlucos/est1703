@@ -28,21 +28,20 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   root 'welcome#index'
-  # post "/hook" => "paypals#hook"
+  # post "/hook" => "paypals#hook"      ##### BUT production still ON
   # post "/paypals/:id" => "paypals#new"  
 
   # get 'welcome/mmindex' => 'welcome#mmindex', :proptype => "for Sale"
   get 'welcome/mmindex' => 'welcome#mmindex'
   
-  
   # get '/package', :to => redirect('/users/package.html')
   get '/package', to: 'users#package'
-  
   
   # ---------------------------------------------------------------------------
   get 'ref_:name', to: 'articles#view' 
   get '_:name', to: 'articles#view' 
   get ':name', to: 'articles#view' 
+  
   
   
   # ---------------------------------------------------------------------------

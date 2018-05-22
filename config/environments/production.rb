@@ -78,6 +78,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'vast-retreat-95360.herokuapp.com/', :protocol => 'https'}
+  config.action_mailer.default_url_options = { 
+    # :host => 'www.landmark.com.my/', :protocol => 'https'
+    :host => 'vast-retreat-95360.herokuapp.com/', :protocol => 'https'
+  }
+  # config.action_mailer.asset_host = 'https://www.landmark.com.my'
 
 end

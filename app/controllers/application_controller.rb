@@ -81,7 +81,6 @@ class ApplicationController < ActionController::Base
       @articles = @articles.where('bedroom <= ?', params[:roomTO].to_i) if params[:roomTO].present? and params[:roomTO] !=""
     end
 
-    
 # filter bathrooms
     # @temp2 = Chainb.find(params[:chainb][:bath].to_i)         if params[:chainb].present? and params[:chainb][:bath] !=""
     # @articles = @articles.where('bathroom >= ?', @temp2.name) if params[:chainb].present? and params[:chainb][:bath] !=""
@@ -199,20 +198,16 @@ class ApplicationController < ActionController::Base
     end
 
 # ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
 # for bedrooms and bathrooms where id=1. they share same min and max    
     @roomsmin = Chainb.where(:chaina_id => '1')
     @roomsmin_for_dropdown = []
     @roomsmin.each do |i|
       @roomsmin_for_dropdown << [i.name, i.id, {class: i.chaina.id}]
     end
-    
     @roomsmax = Chainc.all
-    # @roomsmax = Chainb.where(:chaina_id => '1')
     @roomsmax_for_dropdown = []
     @roomsmax.each do |i|
       @roomsmax_for_dropdown << [i.name, i.id, {class: i.chainb.id}]
-      # @roomsmax_for_dropdown << [i.name, i.id, {class: i.chaina.id}]
     end 
 
 # ------------------------------------------------------------------------------
@@ -222,14 +217,11 @@ class ApplicationController < ActionController::Base
     @pricemin.each do |i|          
       @pricemin_for_dropdown << [i.name, i.id, {class: i.chaina.id}]
     end
-    # @pricemaxC = Chainc.all      ## error both cant dropdown
-    
     @pricemax = Chainc.all
     @pricemax_for_dropdown = []
     @pricemax.each do |i|         
       @pricemax_for_dropdown << [i.name, i.id, {class: i.chainb.id}]
-    end 
-      # @pricemax_for_dropdown << [i.name, i.id, {class: i.chaina.id}] ## error    
+    end    
     
 # for SqFt build-up area only where id=3
     @buildupmin = Chainb.where(:chaina_id => '3')
@@ -257,6 +249,8 @@ class ApplicationController < ActionController::Base
     @buildupmin.each do |i|
       @buildupmin_for_dropdown << [i.name, i.id, {class: i.chaina.id}]
     end
+    
+    
     @buildupmax = Chainc.all
     @buildupmax_for_dropdown = []
     @buildupmax.each do |i|

@@ -13,17 +13,14 @@
 
     <% session[:m_name] = current_user.name %>
     
-    
     <div class="col-sm-4 col-xs-4 gutter-0">
       
       <% if Date.today > current_user.expiry_date && current_user.status? %>
         <%# session[:m_gold] = "Premier" %>
         <%= link_to image_tag("/assets/P1 Premier.jpg", width: "100%"), new_checkout_path(:m_gold => "Premier") %> 
       <% else %>
-        
         <img src="assets/P1 Premier.jpg" class="img-responsive">
       <% end %>
-
 
     </div>
     <div class="col-sm-4 col-xs-4 gutter-0">
@@ -35,7 +32,6 @@
         <img src="assets/P2 Gold.jpg" class="img-responsive">
       <% end %>
      
-     
     </div>
     <div class="col-sm-4 col-xs-4 gutter-0">
 
@@ -45,7 +41,6 @@
       <% else %>
         <img src="assets/P3 Platinum.jpg" class="img-responsive">
       <% end %>
-     
      
     </div>
       
