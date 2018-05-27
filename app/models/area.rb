@@ -3,6 +3,4 @@ class Area < ActiveRecord::Base
   #validates_uniqueness_of :name, :case_sensitive => false    
   belongs_to :region
   validates :region_id, presence: true
-  
-  scope :alphabetical, -> { order("name ASC") } 
 end
