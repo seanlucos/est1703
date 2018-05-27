@@ -4,7 +4,8 @@ class AreasController < ApplicationController
   # GET /areas
   # GET /areas.json
   def index
-    @areas = Area.where(:region_id => params[:m_region_id]).order('name asc') 
+    # @areas = Area.where(:region_id => params[:m_region_id]).order('name asc') 
+    @areas = Area.where(:region_id => params[:m_region_id]).alphabetical 
   end
 
   # GET /areas/1

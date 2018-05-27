@@ -43,7 +43,7 @@
                 <% if user.purchased_at.present? %>                
                   <li>Subscription Date: <%= (user.purchased_at + 8.hours).to_formatted_s(:long) %></li>
                 <% else %>
-                  <li>Subscription Date: Nil</li>
+                  <li>Subscription Date: NIL</li>
                 <% end %>
               
               </td>

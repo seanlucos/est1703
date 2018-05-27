@@ -154,11 +154,11 @@
         <div class="form-group">  
           <div class="col-sm-6 gutter-0"> 
             &nbsp;<b>Region:</b><br>
-            <%= select("region", "name", options_for_select(@regions_for_dropdown, :selected => @article.region), {prompt: 'Select Region'}, {class: 'form-control'}) %>
+            <%= select("region", "name", options_for_select(@regions_for_dropdown.sort, :selected => @article.region), {prompt: 'Select Region'}, {class: 'form-control'}) %>
           </div> 
           <div class="col-sm-6 gutter-0"> 
             &nbsp;<b>Area:</b><br>
-            <%= select("area", "name", options_for_select(@areas_for_dropdown, :selected => @article.area), {prompt: 'Select Area'}, {class: 'form-control'}) %>
+            <%= select("area", "name", options_for_select(@areas_for_dropdown.sort, :selected => @article.area), {prompt: 'Select Area'}, {class: 'form-control'}) %>
           </div> 
         </div>    
       
