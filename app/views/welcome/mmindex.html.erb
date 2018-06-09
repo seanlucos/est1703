@@ -26,50 +26,50 @@
       
         <div class="form-group-sm col-xs-12", style="margin-top: 20px">
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 1FAA.jpg", width: "100%"), "https://goo.gl/forms/q5k14tzHCAKmLsTE2" %>  
+          <%= link_to image_tag("/assets/Side Banner 1FAA.jpg", width: "100%"), "https://goo.gl/forms/q5k14tzHCAKmLsTE2", target: :_blank %>  
         </div>      
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 2IV.jpg", width: "100%"), "https://goo.gl/forms/QlLIyICuIZFFqvNU2" %>  
+          <%= link_to image_tag("/assets/Side Banner 2IV.jpg", width: "100%"), "https://goo.gl/forms/QlLIyICuIZFFqvNU2", target: :_blank %>  
         </div>      
         </div>      
         <div class="form-group-sm col-xs-12">
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 2Ow.jpg", width: "100%"), "https://goo.gl/forms/xu35PLfv8cQVc6PG3" %>  
+          <%= link_to image_tag("/assets/Side Banner 2Ow.jpg", width: "100%"), "https://goo.gl/forms/xu35PLfv8cQVc6PG3", target: :_blank %>  
         </div>
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 3PM.jpg", width: "100%"), "https://goo.gl/forms/7km1WLV5GlkqmX7t1" %>  
+          <%= link_to image_tag("/assets/Side Banner 3PM.jpg", width: "100%"), "https://goo.gl/forms/7km1WLV5GlkqmX7t1", target: :_blank %>  
         </div>      
         </div>      
         <div class="form-group-sm col-xs-12">
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 4LL.jpg", width: "100%"), "https://goo.gl/forms/EiFt4W7FL9hT5hbD2" %>  
+          <%= link_to image_tag("/assets/Side Banner 4LL.jpg", width: "100%"), "https://goo.gl/forms/EiFt4W7FL9hT5hbD2", target: :_blank %>  
         </div>
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 5ID.jpg", width: "100%"), "https://goo.gl/forms/dYJS2VlN8LFfOHfZ2" %>   
+          <%= link_to image_tag("/assets/Side Banner 5ID.jpg", width: "100%"), "https://goo.gl/forms/dYJS2VlN8LFfOHfZ2", target: :_blank %>   
         </div>      
         </div>      
         <div class="form-group-sm col-xs-12">
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 6RV.jpg", width: "100%"), "https://goo.gl/forms/KCzlOnUrasV4IT7z1" %>  
+          <%= link_to image_tag("/assets/Side Banner 6RV.jpg", width: "100%"), "https://goo.gl/forms/KCzlOnUrasV4IT7z1", target: :_blank %>  
         </div>
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 7RM.jpg", width: "100%"), "https://goo.gl/forms/ZVzaH05L3Py2yaSc2" %>   
+          <%= link_to image_tag("/assets/Side Banner 7RM.jpg", width: "100%"), "https://goo.gl/forms/ZVzaH05L3Py2yaSc2", target: :_blank %>   
         </div>      
         </div>      
         <div class="form-group-sm col-xs-12">
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 8BB.jpg", width: "100%"), "https://goo.gl/forms/HQaybQFcmNSNcEY93" %>   
+          <%= link_to image_tag("/assets/Side Banner 8BB.jpg", width: "100%"), "https://goo.gl/forms/HQaybQFcmNSNcEY93", target: :_blank %>   
         </div>
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 9HL.jpg", width: "100%"), "https://goo.gl/forms/SIQzt2JGlHgjgzy33" %>  
+          <%= link_to image_tag("/assets/Side Banner 9HL.jpg", width: "100%"), "https://goo.gl/forms/SIQzt2JGlHgjgzy33", target: :_blank %>  
         </div>      
         </div>      
         <div class="form-group-sm col-xs-12">
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 9zFV.jpg", width: "100%"), "https://goo.gl/forms/miiCkIc3IkH4qulG2" %>  
+          <%= link_to image_tag("/assets/Side Banner 9zFV.jpg", width: "100%"), "https://goo.gl/forms/miiCkIc3IkH4qulG2", target: :_blank %>  
         </div>      
         <div align="center" class="main-thumb col-xs-6">
-          <%= link_to image_tag("/assets/Side Banner 9zzCU.jpg", width: "100%"), "https://goo.gl/forms/PtUuBL9sp5f1lVHv1" %>  
+          <%= link_to image_tag("/assets/Side Banner 9zzCU.jpg", width: "100%"), "https://goo.gl/forms/PtUuBL9sp5f1lVHv1", target: :_blank %>  
         </div>      
         </div>      
         
@@ -78,7 +78,8 @@
         <div class="col-xs-12 gutter-0" align="center">
           <h2><b>Where now?</b></h2>
           <h4><b>Found this useful? Share it:</b></h4><br>
-          <%= link_to image_tag("facebook.gif"), "https://www.facebook.com/sharer.php?u=http://www.http://sssssb.comy/" %>&nbsp;&nbsp;
+          <%= link_to image_tag("facebook.gif"), "https://www.facebook.com/sharer.php?u=#{request.original_url}", target: :_blank %>&nbsp;&nbsp;
+          <%#= link_to image_tag("facebook.gif"), "https://www.facebook.com/sharer.php?u=http://www.http://sssssb.comy/" %>&nbsp;&nbsp;
           <%= link_to image_tag("twitter.gif"), "https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus%3DCurrently%2520reading%2520http%3A%2F%2Fwww.srsp.edu.my" %>&nbsp;&nbsp;
           <%= link_to image_tag("google.gif"), "https://accounts.google.com/ServiceLogin?service=oz&passive=1209600&continue=https://plus.google.com/share?url%3Dhttp://www.sssssb.com%26gpsrc%3Dgplp0&btmpl=popup#identifier" %>&nbsp;&nbsp;
           <%= image_tag("whatsapp.gif") %>
