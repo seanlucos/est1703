@@ -104,14 +104,14 @@
           <div class="col-sm-offset-0 col-sm-3 col-xs-3 gutterR-0"> 
 
             <% if params[:category].present? %>
-              <%= select_tag(:category, options_for_select([['All Category',''], ['Flat','Flat'],['Townhouse','Townhouse'],['Condominium','Condominium'],['Serviced Apartment','Serviced Apartment'],
-              ['Terrace house','Terrace house'],['Semi D','Semi D'],['Bungalow','Bungalow'],['Villa','Villa'],['Office','Office'],['Retail','Retail'],['Shoplot','Shoplot'],
+              <%= select_tag(:category, options_for_select([['All Category',''], ['Flat','Flat'],['Apartment','Apartment'],['Townhouse','Townhouse'],['Condominium','Condominium'],['Serviced Apartment','Serviced Apartment'],
+              ['Terrace house','Terrace house'],['Semi D','Semi D'],['Bungalow','Bungalow'],['Villa','Villa'],['Office','Office'],['Retail','Retail'],['Shoplot','Shoplot'],['Hotel','Hotel'],['Corporate Tower','Corporate Tower'],
               ['Factory','Factory'],['Warehouse','Warehouse'],['Agricultural Land','Agricultural Land'],['Residential Land','Residential Land'],['Commercial Land','Commercial Land'],
               ['Industrial Land','Industrial Land']], :selected => params[:category] ),
               {class: 'form-control'})%>     <!-- without class, looks better -->
             <% else %>
-              <%= select_tag(:category, options_for_select([['All Category',''], ['Flat','Flat'],['Townhouse','Townhouse'],['Condominium','Condominium'],['Serviced Apartment','Serviced Apartment'],
-              ['Terrace house','Terrace house'],['Semi D','Semi D'],['Bungalow','Bungalow'],['Villa','Villa'],['Office','Office'],['Retail','Retail'],['Shoplot','Shoplot'],
+              <%= select_tag(:category, options_for_select([['All Category',''], ['Flat','Flat'],['Apartment','Apartment'],['Townhouse','Townhouse'],['Condominium','Condominium'],['Serviced Apartment','Serviced Apartment'],
+              ['Terrace house','Terrace house'],['Semi D','Semi D'],['Bungalow','Bungalow'],['Villa','Villa'],['Office','Office'],['Retail','Retail'],['Shoplot','Shoplot'],['Hotel','Hotel'],['Corporate Tower','Corporate Tower'],
               ['Factory','Factory'],['Warehouse','Warehouse'],['Agricultural Land','Agricultural Land'],['Residential Land','Residential Land'],['Commercial Land','Commercial Land'],
               ['Industrial Land','Industrial Land']]),
               {class: 'form-control'})%>            

@@ -380,5 +380,35 @@ function showSlides(n) {
     </tr>
   </table> -->
 <% end %>
+
+<br><br>
+      <div class="row">
+        <div class="col-xs-12 gutter-0" align="center">
+          <h4><b>Share it:</b></h4><br>
+          <%= link_to image_tag("facebook.gif"), "https://www.facebook.com/sharer.php?u=#{request.original_url}", target: :_blank %>&nbsp;&nbsp;
+          <%= link_to image_tag("twitter.gif"), "https://twitter.com/login?redirect_after_login=%2Fhome%3Fstatus%3DCurrently%2520reading%2520http%3A%2F%2Fwww.srsp.edu.my" %>&nbsp;&nbsp;
+          <%= link_to image_tag("google.gif"), "https://accounts.google.com/ServiceLogin?service=oz&passive=1209600&continue=https://plus.google.com/share?url%3Dhttp://www.sssssb.com%26gpsrc%3Dgplp0&btmpl=popup#identifier" %>&nbsp;&nbsp;
+
+          <!-- https://github.com/evansobkowicz/awesome-share-buttons      (BUT no whatsapp) -->
+          <!-- whatsapp doesnt work on Android -->
+          <!-- https://stackoverflow.com/questions/25619418/how-do-i-implement-basic-share-social-buttons-with-font-awesome-fonts -->
+          <!-- a href="whatsapp://send?text=<%#= request.original_url %>">Share on WhatsApp</a -->
+          
+          <!-- Twitter -->
+          <!--<a href="http://twitter.com/home?status=SHAREMESSAGE" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>-->
+          <!-- Facebook -->
+          <!--<a href="https://www.facebook.com/sharer/sharer.php?u=SHAREMESSAGE" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>-->
+          <!-- Google+ -->
+          <!--<a href="https://plus.google.com/share?url=SHAREMESSAGE" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>-->
+          <!-- StumbleUpon -->
+          <!--<a href="http://www.stumbleupon.com/submit?url=SHAREMESSAGE" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>-->
+          <!-- LinkedIn -->
+          <!--<a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=SHAREMESSAGE" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>-->
+
+
+
+
+        </div>
+      </div>
 </body>
 </html>
